@@ -9,6 +9,7 @@
         box-sizing: border-box;
         padding: 0;
         margin: 0;
+        border-radius: 3px;
       }
       nav {
         background-color: white;
@@ -28,11 +29,47 @@
         align-items: center;
       }
 
-      .robo-creation-form {
+      .robo-creation-form-container {
         border: 1px solid black;
         border-radius: 5px;
         box-shadow: 10px 20px 30px rgba(49, 49, 49, 0.5);
         max-width: 90rem;
+      }
+
+      .robo-creation-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.2fr 1fr;
+        padding: 1rem;
+      }
+
+      .robo-creation-form-title-container {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        text-align: center;
+      }
+
+      .robo-creation-form-title-container h1 {
+        font-size: 2rem;
+      }
+
+      .robo-creation-form-col-1 {
+        grid-row: 2;
+        grid-column: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(400px + 10rem);
+        padding: 1rem;
+      }
+
+      .robo-creation-form-col-1 img {
+        border: 10px solid rgb(14, 183, 212);
+      }
+
+      .robo-creation-form-col-2 {
+        grid-row: 2;
+        grid-column: 2;
       }
 
       footer {
@@ -46,12 +83,16 @@
     <nav><h1>Robo Fights!</h1></nav>
     <main>
       <section class="robo-action-container">
-        <article class="robo-creation-form">
-          <form>
-            <h1>Robot Creation</h1>
-            <img class="gravatar" alt="a randomly generated robot avatar" />
-            <label for="robo-name">Robot Name</label>
-            <input type="text" name="robo-name" id="robo-name" />
+        <article class="robo-creation-form-container">
+          <form class="robo-creation-form">
+            <div class="robo-creation-form-title-container"><h1>Robot Creation</h1></div>
+            <div class="robo-creation-form-col-1">
+              <img class="gravatar" alt="a randomly generated robot avatar" />
+            </div>
+            <div class="robo-creation-form-col-2">
+              <label for="robo-name">Robot Name</label>
+              <input type="text" name="robo-name" id="robo-name" />
+            </div>
           </form>
         </article>
       </section>
