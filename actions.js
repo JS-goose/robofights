@@ -12,6 +12,9 @@ const logData = (info) => {
   console.log(info);
 };
 
+// Auto loads an image when page loads
+window.onload(getGravatar("steve"));
+
 // MD5 Hash Function for Gravatar emails
 function getGravatar(email) {
   // Algorithim function courtesy of https://deluxeblogtips.com/get-gravatar-using-only-javascript/
@@ -227,4 +230,3 @@ function getGravatar(email) {
 
   return (gravatar.src = `http://www.gravatar.com/avatar/${MD5(email)}?s=400&d=robohash&r=x`);
 }
-
