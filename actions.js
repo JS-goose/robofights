@@ -1,7 +1,19 @@
+// User input variables
+const roboNameInput = document.querySelector("#robo-name");
+
+// Display different sections variables
 let displayNameNameSection = false;
+
+// Data variables - no user input necessary
 const gravatar = document.querySelector(".gravatar");
 
-function getGravatar(email, size) {
+// Logging Data
+const logData = (info) => {
+  console.log(info);
+};
+
+// MD5 Hash Function for Gravatar emails
+function getGravatar(email) {
   // Algorithim function courtesy of https://deluxeblogtips.com/get-gravatar-using-only-javascript/
   // MD5 (Message-Digest Algorithm) by WebToolkit
 
@@ -213,7 +225,6 @@ function getGravatar(email, size) {
     return i.toLowerCase();
   };
 
-  return (gravatar.src = `http://www.gravatar.com/avatar/${MD5(email)}?s=${size}&d=robohash&r=x`);
+  return (gravatar.src = `http://www.gravatar.com/avatar/${MD5(email)}?s=400&d=robohash&r=x`);
 }
 
-getGravatar("steve()@email.com", 400);
