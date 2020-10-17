@@ -1,5 +1,5 @@
+let displayNameNameSection = false;
 const gravatar = document.querySelector(".gravatar");
-console.log(gravatar);
 
 function getGravatar(email, size) {
   // Algorithim function courtesy of https://deluxeblogtips.com/get-gravatar-using-only-javascript/

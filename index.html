@@ -21,20 +21,40 @@
         background-color: rgb(10, 130, 185);
       }
 
+      .robo-action-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .robo-creation-form {
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 10px 20px 30px rgba(49, 49, 49, 0.5);
+        max-width: 90rem;
+      }
+
       footer {
         height: 100px;
         width: 100%;
         background-color: rgb(236, 172, 52);
-        position: absolute;
-        bottom: 0;
       }
     </style>
   </head>
   <body>
     <nav><h1>Robo Fights!</h1></nav>
     <main>
-      Here's the body
-      <img class="gravatar" alt="" />
+      <section class="robo-action-container">
+        <article class="robo-creation-form">
+          <form>
+            <h1>Robot Creation</h1>
+            <img class="gravatar" alt="a randomly generated robot avatar" />
+            <label for="robo-name">Robot Name</label>
+            <input type="text" name="robo-name" id="robo-name" />
+          </form>
+        </article>
+      </section>
     </main>
     <footer>Footer here</footer>
   </body>
