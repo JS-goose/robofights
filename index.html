@@ -101,9 +101,18 @@
         margin-top: 10rem;
       }
 
-      .form-components button {
+      #robo-form-next-screen-button {
         min-width: 12rem;
         min-height: 2rem;
+        border: none;
+        box-shadow: 3px 5px 10px rgb(59, 59, 59);
+        cursor: pointer;
+      }
+
+      #robo-form-next-screen-button:hover {
+        background-color: red;
+        color: white;
+        transform: scale(1.5);
       }
 
       footer {
@@ -184,7 +193,9 @@
                 />
               </div>
               <div class="form-components">
-                <button type="button" onclick="onShowNextScreen()" id="robo-form-next-screen-button">Next</button>
+                <button type="button" onclick="onShowNextScreen()" id="robo-form-next-screen-button">
+                  Start Fighting!
+                </button>
               </div>
             </div>
           </form>
