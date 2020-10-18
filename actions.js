@@ -1,8 +1,10 @@
 // User input variables
 const roboNameInput = document.querySelector("#robo-name");
 const statsInputFields = Array.from(document.querySelectorAll(".robo-form-inputs"));
+const totalPointsInput = document.querySelector("#robo-form-total-points");
+const nextScreenButton = document.querySelector("#robo-form-next-screen-button");
 let roboName = "";
-let totalRobotPoints = 65;
+let totalRobotPoints = 0;
 let damagePoints = 0;
 let healthPoints = 0;
 let dodgePoints = 0;
@@ -11,21 +13,34 @@ let accuracyPoints = 0;
 // Display different sections variables
 let displayNameNameSection = false;
 
-// Add event listeners to user inputs
+// Add event listeners to user inputs, tally points, provide feedback if points go above 65
 statsInputFields.map((item) => {
   item.addEventListener("change", (event) => {
     event.target.name === "robo-form-damage"
-      ? (damagePoints = event.target.value)
+      ? (damagePoints = Number(event.target.value))
       : event.target.name === "robo-form-health"
-      ? (healthPoints = event.target.value)
+      ? (healthPoints = Number(event.target.value))
       : event.target.name === "robo-form-dodge"
-      ? (dodgePoints = event.target.value)
+      ? (dodgePoints = Number(event.target.value))
       : event.target.name === "robo-form-accuracy"
-      ? (accuracyPoints = event.target.value)
+      ? (accuracyPoints = Number(event.target.value))
       : "";
-    console.log(damagePoints, healthPoints, dodgePoints, accuracyPoints);
+
+    totalRobotPoints = damagePoints + healthPoints + dodgePoints + accuracyPoints;
+    totalPointsInput.placeholder = totalRobotPoints;
+
+    if (damagePoints + healthPoints + dodgePoints + accuracyPoints > 65) {
+      alert(
+        `You may only have a total of 65 points.  You have ${totalRobotPoints} set - Damage:${damagePoints} Health:${healthPoints} Dodge:${dodgePoints} Accuracy:${accuracyPoints}`
+      );
+    }
   });
 });
+
+// Shows next screen after user creates their character
+const onShowNextScreen = () => {
+  console.log(nextScreenButton);
+};
 
 // Data variables - no user input necessary
 const gravatar = document.querySelector(".gravatar");
@@ -40,7 +55,7 @@ window.onload(getGravatar("steve"));
 
 // Set Robo Name based off user input
 roboNameInput.addEventListener("change", (event) => {
-    console.log(roboName);
+  console.log(roboName);
   roboName = event.target.value;
 });
 
