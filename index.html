@@ -122,7 +122,7 @@
             <div class="robo-creation-form-col-2">
               <div class="form-components">
                 <label for="robo-name">Robot Name</label>
-                <input type="text" name="robo-name" id="robo-name" onchange="getGravatar(event.target.value)" />
+                <input type="text" name="robo-name" id="robo-name" onkeyup="getGravatar(event.target.value)" />
               </div>
               <div class="form-components">
                 <label for="robo-form-total-points">Total Points</label>
@@ -137,19 +137,47 @@
               </div>
               <div class="form-components">
                 <label for="robo-form-damage">Damage</label>
-                <input type="number" name="robo-form-damage" id="robo-form-damage" />
+                <input
+                  max="30"
+                  min="1"
+                  class="robo-form-inputs"
+                  type="number"
+                  name="robo-form-damage"
+                  id="robo-form-damage"
+                />
               </div>
               <div class="form-components">
                 <label for="robo-form-health">Health</label>
-                <input type="number" name="robo-form-health" id="robo-form-health" />
+                <input
+                  max="30"
+                  min="1"
+                  class="robo-form-inputs"
+                  type="number"
+                  name="robo-form-health"
+                  id="robo-form-health"
+                />
               </div>
               <div class="form-components">
                 <label for="robo-form-dodge">Dodge</label>
-                <input type="number" name="robo-form-dodge" id="robo-form-dodge" />
+                <input
+                  max="30"
+                  min="1"
+                  class="robo-form-inputs"
+                  type="number"
+                  name="robo-form-dodge"
+                  id="robo-form-dodge"
+                />
               </div>
               <div class="form-components">
                 <label for="robo-form-accuracy">Accuracy</label>
-                <input type="number" name="robo-form-accuracy" id="robo-form-accuracy" />
+                <input
+                  max="30"
+                  min="1"
+                  class="robo-form-inputs"
+                  type="number"
+                  name="robo-form-accuracy"
+                  id="robo-form-accuracy"
+                />
               </div>
               <div class="form-components"><button type="submit">Next</button></div>
             </div>

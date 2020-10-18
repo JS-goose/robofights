@@ -1,8 +1,31 @@
 // User input variables
 const roboNameInput = document.querySelector("#robo-name");
+const statsInputFields = Array.from(document.querySelectorAll(".robo-form-inputs"));
+let roboName = "";
+let totalRobotPoints = 65;
+let damagePoints = 0;
+let healthPoints = 0;
+let dodgePoints = 0;
+let accuracyPoints = 0;
 
 // Display different sections variables
 let displayNameNameSection = false;
+
+// Add event listeners to user inputs
+statsInputFields.map((item) => {
+  item.addEventListener("change", (event) => {
+    event.target.name === "robo-form-damage"
+      ? (damagePoints = event.target.value)
+      : event.target.name === "robo-form-health"
+      ? (healthPoints = event.target.value)
+      : event.target.name === "robo-form-dodge"
+      ? (dodgePoints = event.target.value)
+      : event.target.name === "robo-form-accuracy"
+      ? (accuracyPoints = event.target.value)
+      : "";
+    console.log(damagePoints, healthPoints, dodgePoints, accuracyPoints);
+  });
+});
 
 // Data variables - no user input necessary
 const gravatar = document.querySelector(".gravatar");
@@ -15,11 +38,16 @@ const logData = (info) => {
 // Auto loads an image when page loads
 window.onload(getGravatar("steve"));
 
+// Set Robo Name based off user input
+roboNameInput.addEventListener("change", (event) => {
+    console.log(roboName);
+  roboName = event.target.value;
+});
+
 // MD5 Hash Function for Gravatar emails
 function getGravatar(email) {
   // Algorithim function courtesy of https://deluxeblogtips.com/get-gravatar-using-only-javascript/
   // MD5 (Message-Digest Algorithm) by WebToolkit
-
   let MD5 = function (s) {
     function L(k, d) {
       return (k << d) | (k >>> (32 - d));
