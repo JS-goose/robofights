@@ -2,6 +2,7 @@
 const roboNameInput = document.querySelector("#robo-name");
 const statsInputFields = Array.from(document.querySelectorAll(".robo-form-inputs"));
 const totalPointsInput = document.querySelector("#robo-form-total-points");
+const actionContainer = document.querySelector(".robo-action-container");
 const nextScreenButton = document.querySelector("#robo-form-next-screen-button");
 let roboName = "";
 let totalRobotPoints = 0;
@@ -40,6 +41,7 @@ statsInputFields.map((item) => {
 // Shows next screen after user creates their character
 const onShowNextScreen = () => {
   console.log(nextScreenButton);
+  actionContainer.classList.toggle("robo-action-container-slide-out");
 };
 
 // Data variables - no user input necessary
