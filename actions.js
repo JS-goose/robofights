@@ -17,8 +17,12 @@ let damagePoints = 0;
 let healthPoints = 0;
 let dodgePoints = 0;
 let accuracyPoints = 0;
+// User stat modifiers
+let damageModifier = 0;
+let healthModifier = 0;
+let dodgeModifier = 0;
+let accuracyModifier = 0;
 
-let damageDealt = 0;
 
 // Auto loads an image when page loads
 body.onload = setInitialVariables;
