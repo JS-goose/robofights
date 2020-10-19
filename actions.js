@@ -20,10 +20,10 @@ let healthPoints = 0;
 let dodgePoints = 0;
 let accuracyPoints = 0;
 // User stat modifiers
-let damageModifier = 0;
-let healthModifier = 0;
-let dodgeModifier = 0;
-let accuracyModifier = 0;
+let playerDamageModifier = 0;
+let playerHealthModifier = 0;
+let playerDodgeModifier = 0;
+let playerAccuracyModifier = 0;
 
 // Auto loads an image when page loads
 body.onload = setInitialVariables;
@@ -65,12 +65,12 @@ statsInputFields.map((item) => {
 // Shows next screen after user creates their character & set's URLs for images
 const onShowNextScreen = () => {
   console.log(nextScreenButton);
-  damageModifier = damagePoints;
-  healthModifier = 50 + healthPoints;
-  dodgeModifier = 0.1 * 100 + dodgePoints * 0.05;
-  accuracyModifier = 0.5 * 100 + accuracyPoints * 0.05;
+  playerDamageModifier = damagePoints;
+  playerHealthModifier = 50 + healthPoints;
+  playerDodgeModifier = 0.1 * 100 + dodgePoints * 0.05;
+  playerAccuracyModifier = 0.5 * 100 + accuracyPoints * 0.05;
   console.log(`Damage:${damagePoints} Health:${healthPoints} Dodge:${dodgePoints} Accuracy:${accuracyPoints}`);
-  console.log(`Damage:${damageModifier} Health:${healthModifier} Dodge:${dodgeModifier} Accuracy:${accuracyModifier}`);
+  console.log(`Damage:${playerDamageModifier} Health:${playerHealthModifier} Dodge:${playerDodgeModifier} Accuracy:${playerAccuracyModifier}`);
   gravatarUserImgContainer[1].src = playerGravatarURL;
   gravatarComputerImgContainer.src = computerGravatarURL;
   actionContainer.classList.toggle("robo-action-container-slide-out");

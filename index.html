@@ -123,12 +123,6 @@
         transform: scale(1.5);
       }
 
-      footer {
-        height: 100px;
-        width: 100%;
-        background-color: rgb(236, 172, 52);
-      }
-
       .invisible {
         visibility: hidden;
         position: absolute;
@@ -137,6 +131,30 @@
 
       .visible {
         visibility: visible;
+      }
+
+      .robo-fight-section-container {
+        max-width: 90rem;
+      }
+
+      .robo-fight-section-grid-container {
+        display: grid;
+        grid-template-columns: 1fr 0.5fr 1fr;
+        grid-template-rows: 1fr;
+        border: 5px solid black;
+        text-align: center;
+      }
+
+      .fight-section-info-panel {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .fight-section-info-panel-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 0.5rem;
       }
     </style>
   </head>
@@ -220,19 +238,89 @@
         </article>
         <article class="robo-fight-section-container invisible">
           <div class="robo-fight-section-grid-container">
-            <div>
-              <h1 id="robo-fight-section-player-name"></h1>
+            <div class="player-fight-section">
+              <h1 id="robo-fight-section-player-name">Player Robot Name</h1>
               <img class="gravatar-player" alt="a randomly generated player robot avatar" src="" />
+              <form class="fight-section-player-stats">
+                <div class="form-components">
+                  <label for="fight-section-player-damage">Damage</label>
+                  <input disabled type="text" name="fight-section-player-damage" id="fight-section-player-damage" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-health">Health</label>
+                  <input disabled type="text" name="fight-section-player-health" id="fight-section-player-health" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-dodge">Dodge</label>
+                  <input disabled type="text" name="fight-section-player-dodge" id="fight-section-player-dodge" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-accuracy">Accuracy</label>
+                  <input disabled type="text" name="fight-section-player-accuracy" id="fight-section-player-accuracy" />
+                </div>
+              </form>
             </div>
-            <div>
+            <div class="fight-section-info-panel">
+              <h3>Fight Info</h3>
+              <textarea name="" id="" cols="30" rows="20">fight info will display here</textarea>
+              <form class="fight-section-info-panel-form">
+                <div class="form-components">
+                  <label for="fight-section-player-damage">Fights</label>
+                  <input type="text" name="fight-section-player-damage" id="fight-section-player-damage" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-health">Damage</label>
+                  <input type="text" name="fight-section-player-health" id="fight-section-player-health" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-dodge">Health</label>
+                  <input type="text" name="fight-section-player-dodge" id="fight-section-player-dodge" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-dodge">Accuracy</label>
+                  <input type="text" name="fight-section-player-dodge" id="fight-section-player-dodge" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-accuracy">Wins</label>
+                  <input type="text" name="fight-section-player-accuracy" id="fight-section-player-accuracy" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-player-accuracy">Loses</label>
+                  <input type="text" name="fight-section-player-accuracy" id="fight-section-player-accuracy" />
+                </div>
+              </form>
+            </div>
+            <div class="computer-fight-section">
               <h1 id="robo-fight-section-computer-name">Computer Robot Name</h1>
               <img class="gravatar-computer" alt="a randomly generated robot avatar" src="" />
+              <form class="fight-section-computer-stats">
+                <div class="form-components">
+                  <label for="fight-section-computer-damage">Damage</label>
+                  <input disabled type="text" name="fight-section-computer-damage" id="fight-section-computer-damage" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-computer-health">Health</label>
+                  <input disabled type="text" name="fight-section-computer-health" id="fight-section-computer-health" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-computer-dodge">Dodge</label>
+                  <input disabled type="text" name="fight-section-computer-dodge" id="fight-section-computer-dodge" />
+                </div>
+                <div class="form-components">
+                  <label for="fight-section-computer-accuracy">Accuracy</label>
+                  <input
+                    disabled
+                    type="text"
+                    name="fight-section-computer-accuracy"
+                    id="fight-section-computer-accuracy"
+                  />
+                </div>
+              </form>
             </div>
           </div>
         </article>
       </section>
     </main>
-    <footer>Footer here</footer>
     <script src="./actions.js" async defer></script>
   </body>
 </html>
