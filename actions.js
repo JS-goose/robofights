@@ -1,18 +1,34 @@
-// User input variables
+// Containers/layout variables
+const body = document.querySelector("body");
 const roboNameInput = document.querySelector("#robo-name");
 const statsInputFields = Array.from(document.querySelectorAll(".robo-form-inputs"));
 const totalPointsInput = document.querySelector("#robo-form-total-points");
 const actionContainer = document.querySelector(".robo-action-container");
+const fightSectionContainer = document.querySelector(".robo-fight-section-container");
 const nextScreenButton = document.querySelector("#robo-form-next-screen-button");
 let roboName = "";
+let randomNumber = Math.random() * 100;
+let randomEmail = `XR1!-75${randomNumber}@email.com`;
+let playerGravatarURL = "";
+let computerGravatarURL = "";
+// User created robot stats variables
 let totalRobotPoints = 0;
 let damagePoints = 0;
 let healthPoints = 0;
 let dodgePoints = 0;
 let accuracyPoints = 0;
 
-// Display different sections variables
-let displayNameNameSection = false;
+let damageDealt = 0;
+
+// Auto loads an image when page loads
+body.onload = setInitialVariables;
+const gravatarUserImgContainer = Array.from(document.querySelectorAll(".gravatar-player"));
+const gravatarComputerImgContainer = document.querySelector(".gravatar-computer");
+
+function setInitialVariables() {
+  getGravatar(randomEmail);
+  return (gravatarUserImgContainer[0].src = playerGravatarURL);
+}
 
 // Add event listeners to user inputs, tally points, provide feedback if points go above 65
 statsInputFields.map((item) => {
@@ -38,31 +54,34 @@ statsInputFields.map((item) => {
   });
 });
 
-// Shows next screen after user creates their character
+// Shows next screen after user creates their character & set's URLs for images
 const onShowNextScreen = () => {
   console.log(nextScreenButton);
+  gravatarUserImgContainer[1].src = playerGravatarURL;
+  gravatarComputerImgContainer.src = computerGravatarURL;
   actionContainer.classList.toggle("robo-action-container-slide-out");
+  fightSectionContainer.classList.toggle("visible");
 };
-
-// Data variables - no user input necessary
-const gravatar = document.querySelector(".gravatar");
 
 // Logging Data
 const logData = (info) => {
   console.log(info);
 };
 
-// Auto loads an image when page loads
-window.onload(getGravatar("steve"));
-
 // Set Robo Name based off user input
-roboNameInput.addEventListener("change", (event) => {
-  console.log(roboName);
+function setRoboName(event) {
   roboName = event.target.value;
+  console.log(roboName);
+}
+
+roboNameInput.addEventListener("keyup", setRoboName);
+roboNameInput.addEventListener("change", () => {
+  return (gravatarUserImgContainer[0].src = playerGravatarURL);
 });
 
 // MD5 Hash Function for Gravatar emails
 function getGravatar(email) {
+  console.log("GET AVATAR FUNC RUNNING");
   // Algorithim function courtesy of https://deluxeblogtips.com/get-gravatar-using-only-javascript/
   // MD5 (Message-Digest Algorithm) by WebToolkit
   let MD5 = function (s) {
@@ -273,5 +292,8 @@ function getGravatar(email) {
     return i.toLowerCase();
   };
 
-  return (gravatar.src = `http://www.gravatar.com/avatar/${MD5(email)}?s=400&d=robohash&r=x`);
+  return (
+    (playerGravatarURL = `http://www.gravatar.com/avatar/${MD5(email)}?s=400&d=robohash&r=x`) &&
+    (computerGravatarURL = `http://www.gravatar.com/avatar/${MD5(randomEmail)}?s=400&d=robohash&r=pg`)
+  );
 }
