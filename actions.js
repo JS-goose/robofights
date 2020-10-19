@@ -6,6 +6,8 @@ const totalPointsInput = document.querySelector("#robo-form-total-points");
 const actionContainer = document.querySelector(".robo-action-container");
 const fightSectionContainer = document.querySelector(".robo-fight-section-container");
 const nextScreenButton = document.querySelector("#robo-form-next-screen-button");
+const fightSectionPlayerName = document.querySelector('#robo-fight-section-player-name')
+const fightSectionComputerName = document.querySelector('#robo-fight-section-computer-name')
 let roboName = "";
 let randomNumber = Math.random() * 100;
 let randomEmail = `XR1!-75${randomNumber}@email.com`;
@@ -72,6 +74,8 @@ const onShowNextScreen = () => {
   gravatarUserImgContainer[1].src = playerGravatarURL;
   gravatarComputerImgContainer.src = computerGravatarURL;
   actionContainer.classList.toggle("robo-action-container-slide-out");
+  fightSectionPlayerName.textContent = roboName;
+  fightSectionComputerName.textContent = randomEmail.slice(0,18);
   fightSectionContainer.classList.toggle("visible");
 };
 
