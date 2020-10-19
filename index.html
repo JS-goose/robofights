@@ -120,22 +120,32 @@
         width: 100%;
         background-color: rgb(236, 172, 52);
       }
+
+      .invisible {
+        visibility: hidden;
+        position: absolute;
+        top: -25245245;
+      }
+
+      .visible {
+        visibility: visible;
+      }
     </style>
   </head>
   <body>
-    <nav><h1>Robo Fights!</h1></nav>
+    <nav><h1>Strongly Worded Virtual Robot Disagreements!</h1></nav>
     <main>
       <section class="robo-action-container">
         <article class="robo-creation-form-container">
           <form class="robo-creation-form">
             <div class="robo-creation-form-title-container"><h1>Robot Character Creation</h1></div>
             <div class="robo-creation-form-col-1">
-              <img class="gravatar" alt="a randomly generated robot avatar" />
+              <img class="gravatar-player" alt="a randomly generated robot avatar" />
             </div>
             <div class="robo-creation-form-col-2">
               <div class="form-components">
                 <label for="robo-name">Robot Name</label>
-                <input type="text" name="robo-name" id="robo-name" onkeyup="getGravatar(event.target.value)" />
+                <input type="text" name="robo-name" id="robo-name" onchange="getGravatar(event.target.value)" />
               </div>
               <div class="form-components">
                 <label for="robo-form-total-points">Total Points</label>
@@ -199,6 +209,18 @@
               </div>
             </div>
           </form>
+        </article>
+        <article class="robo-fight-section-container invisible">
+          <div class="robo-fight-section-grid-container">
+            <div>
+              <h1>Player Robot Name</h1>
+              <img class="gravatar-player" alt="a randomly generated player robot avatar" src="" />
+            </div>
+            <div>
+              <h1>Computer Robot Name</h1>
+              <img class="gravatar-computer" alt="a randomly generated robot avatar" src="" />
+            </div>
+          </div>
         </article>
       </section>
     </main>
