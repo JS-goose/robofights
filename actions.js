@@ -63,6 +63,12 @@ statsInputFields.map((item) => {
 // Shows next screen after user creates their character & set's URLs for images
 const onShowNextScreen = () => {
   console.log(nextScreenButton);
+  damageModifier = damagePoints;
+  healthModifier = 50 + healthPoints;
+  dodgeModifier = 0.1 * 100 + dodgePoints * 0.05;
+  accuracyModifier = 0.5 * 100 + accuracyPoints * 0.05;
+  console.log(`Damage:${damagePoints} Health:${healthPoints} Dodge:${dodgePoints} Accuracy:${accuracyPoints}`);
+  console.log(`Damage:${damageModifier} Health:${healthModifier} Dodge:${dodgeModifier} Accuracy:${accuracyModifier}`);
   gravatarUserImgContainer[1].src = playerGravatarURL;
   gravatarComputerImgContainer.src = computerGravatarURL;
   actionContainer.classList.toggle("robo-action-container-slide-out");
