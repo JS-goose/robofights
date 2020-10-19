@@ -23,7 +23,6 @@ let healthModifier = 0;
 let dodgeModifier = 0;
 let accuracyModifier = 0;
 
-
 // Auto loads an image when page loads
 body.onload = setInitialVariables;
 const gravatarUserImgContainer = Array.from(document.querySelectorAll(".gravatar-player"));
@@ -54,6 +53,9 @@ statsInputFields.map((item) => {
       alert(
         `You may only have a total of 65 points.  You have ${totalRobotPoints} set - Damage:${damagePoints} Health:${healthPoints} Dodge:${dodgePoints} Accuracy:${accuracyPoints}`
       );
+      nextScreenButton.disabled = true;
+    } else {
+      nextScreenButton.disabled = false;
     }
   });
 });
@@ -79,6 +81,7 @@ function setRoboName(event) {
 }
 
 roboNameInput.addEventListener("keyup", setRoboName);
+// Sets URL for user's avatar
 roboNameInput.addEventListener("change", () => {
   return (gravatarUserImgContainer[0].src = playerGravatarURL);
 });
